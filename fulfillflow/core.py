@@ -21,8 +21,7 @@ class Shipment:
 ALLOWED = {
     Status.CREATED: {Status.PACKED, Status.CANCELLED},
     Status.PACKED: {Status.SHIPPED, Status.CANCELLED},
-    # Seeded defect: shipment cancellation must be prohibited after dispatch.
-    Status.SHIPPED: {Status.DELIVERED, Status.CANCELLED, Status.RETURN_TO_SENDER},
+    Status.SHIPPED: {Status.DELIVERED, Status.RETURN_TO_SENDER},
     Status.DELIVERED: set(),
     Status.CANCELLED: set(),
     Status.RETURN_TO_SENDER: set(),
