@@ -1,0 +1,12 @@
+# Agent-to-agent handoff
+- Task ID and issue URL:
+- Role handing off / role receiving:
+- Goal and acceptance criteria:
+- Approved plan link:
+- Allowed and forbidden paths:
+- Current branch and HEAD SHA:
+- Decisions and rationale:
+- Completed tasks / pending tasks:
+- Test and CI artifact URLs:
+- Risk / blocker / stop condition:
+- Memory expiration / refresh rule:

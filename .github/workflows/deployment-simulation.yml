@@ -1,0 +1,12 @@
+name: Protected deployment simulation
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  approval-gate:
+    runs-on: ubuntu-latest
+    environment: nonproduction-review
+    steps:
+      - uses: actions/checkout@v4
+      - run: echo "SIMULATION ONLY | SHA=${GITHUB_SHA} | No external deployment"

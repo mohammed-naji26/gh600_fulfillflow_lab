@@ -1,0 +1,14 @@
+# Agent failure / incident template
+- Incident ID:
+- Timestamp (UTC):
+- Issue / PR / run URL:
+- Current head SHA:
+- Agent role and tool call:
+- Observed failure and impact:
+- Category: reasoning | tool misuse | stale context | environment | coordination | permission
+- Evidence links:
+- Containment / rollback or revert:
+- Owner and escalation:
+- Root-cause hypothesis + verification:
+- Changed guardrail / evaluation case:
+- Closure and human sign-off:

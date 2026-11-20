@@ -1,0 +1,15 @@
+{
+  "issue": 1,
+  "task_id": "FF-001",
+  "goal": "Disallow cancellation after shipment",
+  "current_phase": "plan",
+  "owner_role": "planner",
+  "commit_sha": "REPLACE_WITH_CURRENT_GIT_SHA",
+  "approved_paths": ["fulfillflow/core.py", "tests/test_core.py"],
+  "risk_level": "MEDIUM",
+  "decisions": ["Keep return_to_sender distinct from cancellation"],
+  "pending_validation": ["unit_tests", "risk_gate"],
+  "last_updated_utc": "REPLACE_WITH_TIMESTAMP",
+  "expires_at_utc": "REPLACE_WITH_TIMESTAMP",
+  "human_approval": false
+}

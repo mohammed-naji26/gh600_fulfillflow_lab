@@ -1,0 +1,25 @@
+name: CI and evidence
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  unit-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Generate current-SHA test evidence
+        run: python scripts/evaluate.py
+      - name: Upload test evidence even on failure
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: evaluation-${{ github.sha }}
+          path: docs/evidence/evaluation.json
+          if-no-files-found: warn

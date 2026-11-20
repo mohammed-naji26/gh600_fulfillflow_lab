@@ -1,0 +1,13 @@
+# Final GH-600 capstone audit
+- Issue and requirements URL:
+- Approved plan and human approver:
+- Branch, pull request, current head SHA:
+- Tool permissions and trusted MCP source:
+- Test run / GitHub Actions run / artifact URLs:
+- Code review and CODEOWNERS verification:
+- Ruleset and protected environment evidence:
+- Agent handoff and state freshness:
+- Prompt injection and failure-recovery tests:
+- Drift finding and remediation PR:
+- Release simulation approver / evidence:
+- Unresolved limitations:
