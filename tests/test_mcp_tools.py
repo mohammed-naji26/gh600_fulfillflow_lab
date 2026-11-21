@@ -91,3 +91,39 @@ class MCPToolTests(unittest.TestCase):
             result["allowed_transitions"],
             ["delivered", "return_to_sender"],
         )
+    
+    def test_only_approved_tools_are_exposed(self):
+        """The MCP server must expose only approved tools."""
+
+        async def check_tools():
+            async with Client(server) as client:
+                result = await client.list_tools()
+                return {tool.name for tool in result.tools}
+
+        actual = asyncio.run(check_tools())
+
+        expected = {
+            "list_shipment_statuses",
+            "get_allowed_transitions",
+            "validate_transition",
+        }
+
+        self.assertEqual(actual, expected)
+
+    def test_unauthorized_tool_is_rejected(self):
+        """Unregistered shipment-modification tools must fail."""
+
+        async def attempt_unauthorized_call():
+            async with Client(server) as client:
+                return await client.call_tool(
+                    "cancel_shipment",
+                    {"shipment_id": "SHP-1042"},
+                )
+
+        result = asyncio.run(attempt_unauthorized_call())
+
+        self.assertTrue(result.is_error)
+        self.assertIn(
+            "Unknown tool",
+            str(result.content),
+        )
