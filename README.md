@@ -1,9 +1,16 @@
 # GH-600 | FulfillFlow AgentOps: end-to-end practical laboratory
 
-**Status:** Implemented educational AgentOps laboratory and capstone in progress
+
+**Status:** Implemented educational AgentOps laboratory; capstone in progress
+
 **Target certification:** GitHub Certified: Agentic AI Developer (GH-600)
+
 **Current verified baseline:** 74 automated tests passed
-**Production status:** Non-production educational project**Date:** November 2026
+
+**Production status:** Non-production educational project
+
+**Last updated:** November 2026
+
 
 This repository combines the earlier **FulfillFlow** defect-driven lab and **AgentOps** governance capstone. It covers all six domains in the [official GH-600 outline](https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/gh-600). It is not an official GitHub training repository or a production deployment. The starter works without paid agent access; Copilot, GitHub MCP and gh-aw are optional real-agent tracks. Do not put sensitive data or credentials in this repository.
 
