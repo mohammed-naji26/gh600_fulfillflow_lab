@@ -47,6 +47,27 @@ jobs:
             | tee docs/evidence/risk.json
           test "${PIPESTATUS[0]}" -eq 0
 
+      - name: Evaluate governance drift
+        if: github.event_name == 'pull_request'
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        shell: bash
+        run: |
+          status=0
+          python -m scripts.governance_drift \
+            "$BASE_SHA" "$HEAD_SHA" \
+            --output docs/evidence/governance_drift.json \
+            || status=$?
+
+          if [ "$status" -eq 1 ]; then
+            echo "Governance changes detected: human review required"
+            exit 0
+          fi
+
+          exit "$status"
+
+
       - name: Generate current-SHA test evidence
         run: python scripts/evaluate.py
 
@@ -55,7 +76,10 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: evaluation-${{ github.sha }}
+
           path: |
             docs/evidence/evaluation.json
             docs/evidence/risk.json
+            docs/evidence/governance_drift.json
+
           if-no-files-found: warn
