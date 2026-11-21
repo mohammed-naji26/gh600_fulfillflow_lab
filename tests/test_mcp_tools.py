@@ -91,7 +91,7 @@ class MCPToolTests(unittest.TestCase):
             result["allowed_transitions"],
             ["delivered", "return_to_sender"],
         )
-    
+
     def test_only_approved_tools_are_exposed(self):
         """The MCP server must expose only approved tools."""
 
