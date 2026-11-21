@@ -6,3 +6,5 @@ __pycache__/
 .pytest_cache/
 .DS_Store
 docs/evidence/evaluation.json
+
+.github/hooks/tool-use.log
