@@ -1,6 +1,16 @@
 # GH-600 | FulfillFlow AgentOps: end-to-end practical laboratory
 
-**Status:** Runnable educational starter • **Target:** GitHub Certified: Agentic AI Developer (GH-600) • **Date:** November 2026
+
+**Status:** Implemented educational AgentOps laboratory; capstone in progress
+
+**Target certification:** GitHub Certified: Agentic AI Developer (GH-600)
+
+**Current verified baseline:** 74 automated tests passed
+
+**Production status:** Non-production educational project
+
+**Last updated:** November 2026
+
 
 This repository combines the earlier **FulfillFlow** defect-driven lab and **AgentOps** governance capstone. It covers all six domains in the [official GH-600 outline](https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/gh-600). It is not an official GitHub training repository or a production deployment. The starter works without paid agent access; Copilot, GitHub MCP and gh-aw are optional real-agent tracks. Do not put sensitive data or credentials in this repository.
 
@@ -39,7 +49,30 @@ python -m fulfillflow.cli shipped cancelled
 python scripts/evaluate.py
 ```
 
-**Expected initial condition:** 14 tests execute; 13 pass and **1 fails intentionally**, because the starter permits `SHIPPED -> CANCELLED`. The CLI prints `Allowed: shipped -> cancelled`, proving the defect. The evaluation script exits nonzero and records `quality_gate: BLOCK` in `docs/evidence/evaluation.json`. A subsequent fix should achieve **14/14 passing**. These are expected results from the provided starter, not reported results from your GitHub account.
+
+**Current verified baseline:** The original shipment-transition
+defect has been corrected. The application rejects cancellation
+after shipping while preserving the return-to-sender workflow.
+
+The project now includes:
+
+- Shipment business-rule regression testing.
+- Three read-only MCP tools integrated with GitHub Copilot.
+- MCP interface-security and prompt-injection evaluations.
+- Risk classification and GitHub Actions evaluation evidence.
+- Task-state freshness and agent-handoff validation.
+- Structured ALLOW/BLOCK handoff audit decisions.
+- Failure-recovery policy evaluation.
+- Governance-drift detection.
+
+The latest verified local regression suite contains 74
+passing tests.
+
+These results demonstrate the tested software behavior.
+Human approval enforcement, protected deployment environments,
+and real-agent execution permissions require separate
+verification in GitHub.
+
 
 ### Important concepts to distinguish
 
